@@ -6,6 +6,7 @@ import 'package:dartastic_opentelemetry_api/dartastic_opentelemetry_api.dart';
 import 'otel_aws_eks_suppression.dart';
 
 class AwsEKSResult {
+  /// Creates a result.
   const AwsEKSResult({
     this.clusterName,
     this.clusterArn,
@@ -31,8 +32,13 @@ class AwsEKSResult {
   final String? errorMessage;
 }
 
+/// What a traced call returned: the value for the caller plus fields
+/// recorded on the span.
 class AwsEKSCallResult<T> {
+  /// Creates a call result.
   const AwsEKSCallResult({required this.value, this.result});
+
+  /// The value returned to the caller.
   final T value;
   final AwsEKSResult? result;
 }
